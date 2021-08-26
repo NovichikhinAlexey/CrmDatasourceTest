@@ -13,8 +13,15 @@ namespace CrmDatasourceTest
             var crmPersonalDataFactory = new MyGrpcClientFactory("http://crm-datasource.crm.svc.cluster.local:80");
             var client = crmPersonalDataFactory.CreateGrpcService<IMyCrmPersonalDataGrpcService>();
 
+            // UAT user
             await GetData(client, "alexey.n+2@smplt.net");
             await GetData(client, "b22e9a05e050467ba9a32488e1c28f49");
+
+            // test user
+            await GetData(client, "alexey.n@smplt.net");
+            await GetData(client, "6462fc570ff64c4884a13a35fc4cb901");
+
+            
 
         }
 
